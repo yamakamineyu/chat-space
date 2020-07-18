@@ -1,13 +1,13 @@
 .side-bar
   .side-bar__Block
     .side-bar__Block__userbox
-      .side-bar__Block__userbox--namebox
-        masa
-      .side-bar__Block__userbox--iconbox
+      %h3.side-bar__Block__userbox--namebox
+        = current_user.name
+      %ul.side-bar__Block__userbox--iconbox
         = link_to "#", class:'side-bar__Block__userbox--iconbox--pen' do
           = icon('fa', 'edit')
-        = link_to "#", class:'side-bar__Block__userbox--iconbox--sharin' do
-          = icon('fa', 'cog')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'side-bar__Block__userbox--iconbox--sharin')  
   .side-bar__list
     .side-bar__list__groupbox
       .side-bar__list__groupbox--chat
