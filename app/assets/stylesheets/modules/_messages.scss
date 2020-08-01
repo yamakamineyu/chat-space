@@ -45,23 +45,23 @@
       }
     }
   }
-  &__list {
+  .groups {
     width: 300px;
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0px;
-    &__groupbox {
+    .group {
       margin-bottom: 40px;
       a {
         text-decoration: none;
       }
-      &--chat {
+      .group__name {
         font-size: 15px;
         color: white;
         font-weight: bold;
         text-decoration: none;
       } 
-      &--latest-message {
+      .group__message {
         font-size: 11px;
         color: white;
         font-weight: bold;
@@ -85,7 +85,10 @@
     border-bottom: solid 1px #eeeeee;
     &__left-box {
       &__current-member {
-        padding-left: 40px;  
+        padding-left: 40px;
+        a {
+          text-decoration: none;
+        }  
         &--group {
           font-size: 20px;
           color: #333333;
@@ -112,80 +115,78 @@
       }
     }
   }
-&__message-list {
+.messages {
   height: calc(100vh - 190px);
   width: calc(100vw - 300px);  
   background-color: #fafafa;
-  &__chat-list {
+  overflow: scroll;
+  .upper-message {
     padding: 35px 0px 0px 40px;
-    &__info {
-      display: flex;
-      &--member {
+    display: flex;
+      .upper-message__user-name {
         font-size: 16px;
         color: #333333;
       }
-      &--send-time {
+      .upper-message__date {
         font-size: 12px;
         color: #999999;
         padding-left: 12px;
       } 
     }
-    &--one-message {
+  .lower-message {
+    padding-left: 35px;
     font-size: 14px;
     color: #434A54;
     margin-bottom: 46px;
-    }
-  }  
-}
-  &__message-form {
-    height: 90px;
-    background-color: #d2d2d2;
-    width:  calc(100vw - 300px);
+  }
+}  
+.form {
+  height: 90px;
+  background-color: #d2d2d2;
+  width:  calc(100vw - 300px);
+  display: flex;
+  padding: 20px 40px 20px 40px;
+  &__message {
+    height: 50px;
+    width: 100%;
+    color: #999999;
+    padding: 0px 40px 0px 10px;
     display: flex;
-    padding: 20px 40px 20px 40px;
-    &__new-message {
-      width: 100%;
-      display: flex;
-      &__input-box {
-        width: 100%;
-        position: relative;
-        display: flex;
-        &--text {
-          height: 50px;
-          width: 100%;
-          color: #999999;
-          padding: 0px 40px 0px 10px;
-          display: flex;
-          position: relative;
-          border-style: none;
-        }
-          &--image {
-            color: #333333;
-            position: absolute;
-            font-size: 20.8px;
-            line-height: 50px;
-            right: 10px;
-            cursor: pointer;
-            background-color: white;
-          }
-      &--image__file {
-        position: absolute;
-        top: 30px;
-        right: 10px;
-        display: none;
-        background-color: blue;
-      }
+    // position: relative;
+    border-style: none;
+  }
+  .new_message {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  &__mask {  
+    display: flex;
+    .form__mask__image {
+      position: absolute;
+      top: 13px;
+      right: 120px;
+      font-size: 20.8px;
     }
-      &--submit-btn {
-        font-size: 16px;
-        color: white;
-        margin-left: 15px;
-        height: 50px;
-        width: 100px;
-        background-color: #38AEF0;
-        border-style: none;
-        cursor: pointer;
-      }
+    .icon {
+      color: #333333;
+      cursor: pointer;
+      background-color: white;
+    }
+    .hidden {
+      display: none;
     }
   }
+
+  .form__submit {
+    font-size: 16px;
+    color: white;
+    margin-left: 15px;
+    height: 50px;
+    width: 100px;
+    background-color: #38AEF0;
+    border-style: none;
+    cursor: pointer;
+  }
+}
 }

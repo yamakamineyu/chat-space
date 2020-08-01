@@ -8,11 +8,24 @@
           = icon('fa', 'edit')
         = link_to edit_user_path(current_user), class: 'side-bar__Block__userbox--iconbox--sharin' do
           = icon('fas', 'cog')  
-  .side-bar__list
+  .groups
     - current_user.groups.each do |group|
-      .side-bar__list__groupbox
-        = link_to '#' do
-          .side-bar__list__groupbox--chat
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
             = group.name
-          .side-bar__list__groupbox--latest-message
-            まだメッセージがありません
+          .group__message
+            = group.show_last_message
+  
+  
+  
+  
+  
+  -# .side-bar__list
+  -#   - current_user.groups.each do |group|
+  -#     .side-bar__list__groupbox
+  -#       = link_to group_messages_path(group) do
+  -#         .side-bar__list__groupbox--chat
+  -#           = group.name
+  -#         .side-bar__list__groupbox--latest-message
+  -#           まだメッセージがありません
