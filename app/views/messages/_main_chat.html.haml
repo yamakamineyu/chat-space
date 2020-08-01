@@ -3,38 +3,20 @@
     .main-chat__group-info__left-box
       .main-chat__group-info__left-box__current-member
         .main-chat__group-info__left-box__current-member--group
-          test
+          = @group.name
         .main-chat__group-info__left-box__current-member--list
-          Member：masa
+          ="Member:" + @group.users.pluck(:name).join(", ")
+        -# "頭に表示したい文字列" + モデル名.users tableへのアソシエーション.pluck(:取り出したいカラム).join("取り出した値の区切り文字")
     .main-chat__group-info__right-box        
       .main-chat__group-info__right-box--Edit-btn
-        =link_to "/#" do
-          %a  Edit
-
-  .main-chat__message-list
-    .main-chat__message-list__chat-list
-      .main-chat__message-list__chat-list__info
-        .main-chat__message-list__chat-list__info--member
-          masa
-        .main-chat__message-list__chat-list__info--send-time
-          2019/11/20(Wed) 17:43:01
-      .main-chat__message-list__chat-list--one-message
-        おはよう！
-
-      .main-chat__message-list__chat-list__info
-        .main-chat__message-list__chat-list__info--member
-          masa
-        .main-chat__message-list__chat-list__info--send-time
-          2019/11/20(Wed) 17:43:01
-      .main-chat__message-list__chat-list--one-message
-        今日は夜から雨
-
-
-  .main-chat__message-form
-    %form.main-chat__message-form__new-message
-      .main-chat__message-form__new-message__input-box
-        %input{type: "text", class: "main-chat__message-form__new-message__input-box--text", placeholder: "type a message"}
-          %label{class: "main-chat__message-form__new-message__input-box--image"}
-            = icon('fas', 'image')
-            %input{type: "file", class: "main-chat__message-form__new-message__input-box--image__file"}
-      %input{type: "submit", class: "main-chat__message-form__new-message--submit-btn", value: "Send"}
+        = link_to "Edit", edit_group_path(@group), class: 'btn'
+  .messages
+    = render @messages
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('far', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
