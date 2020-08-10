@@ -112,6 +112,9 @@
         text-align: center;
         border: 1px solid #38aef0;
         cursor: pointer;
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -152,7 +155,6 @@
     color: #999999;
     padding: 0px 40px 0px 10px;
     display: flex;
-    // position: relative;
     border-style: none;
   }
   .new_message {
