@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-  # 7を実装しようとしている 応用メッセージ送信機能
+
   def show
     @group = Group.find(params[:id])
   end
