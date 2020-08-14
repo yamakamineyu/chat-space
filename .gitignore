@@ -17,3 +17,7 @@
 .byebug_history
 
 public/uploads/*
+
+config/secrets.yml
+
+ssh -i [pem鍵の名前].pem ec2-user@[作成したEC2インスタンスと紐付けたElastic IP]
